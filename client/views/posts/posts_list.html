@@ -1,0 +1,20 @@
+<template name="newPosts">
+  {{> postsList options}}
+</template>
+<template name="bestPosts">
+  {{> postsList options}}
+</template>
+<template name="postsList">
+	<div class="posts">
+		{{#each postsWithRank}}
+		      {{> postItem}}
+		    {{/each}}
+		{{#if postsReady}}
+			{{#unless allPostsLoaded}}
+				<a href="#" class="load-more">Load more</a>
+			{{/unless}}
+		{{else}}
+			<div>{{> spinner}}</div>
+		{{/if}}
+	</div>
+</template>
